@@ -76,10 +76,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'delmmarc_bellavista_donuts',
-        'HOST': 'postgresql-delmmarc.alwaysdata.net',
-        'USER': 'delmmarc_bellavista_donuts',
+        'HOST': 'mysql-delmmarc.alwaysdata.net',
+        'USER': 'delmmarc_bedonut',
         'PASSWORD': 'D3lmar.13!',
 
     }
