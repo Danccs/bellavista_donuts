@@ -33,6 +33,7 @@ class Proveedor(models.Model):
 class Ingrediente(models.Model):
     nombre = models.CharField(max_length=128)
     presentacion = models.CharField(max_length=128)
+    unidad_receta = models.CharField(max_length=5)
 
     def __str__(self):
         return self.nombre
@@ -40,11 +41,8 @@ class Ingrediente(models.Model):
 class ProductoIngrediente(models.Model):
     producto = models.ForeignKey(Producto, on_delete=models.PROTECT)
     ingrediente = models.ForeignKey(Ingrediente, on_delete=models.PROTECT)
-    unidad_ingrediente = models.CharField(max_length=128)
     cantidad_ingrediente = models.FloatField()
 
 class ProveedorIngrediente(models.Model):
     ingrediente = models.ForeignKey(Ingrediente, on_delete=models.PROTECT)
     proveedor = models.ForeignKey(Proveedor, on_delete=models.PROTECT)
-
-
