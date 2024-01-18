@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Ingredientes</h1>
+
+    <table>
+        <tbody>
+            {% for ingrediente in ingredientes %}
+            <tr>
+                <td>{{ ingrediente.nombre }}</td>
+                <td>{{ ingrediente.presentacion }}</td>
+                <td>{{ ingrediente.unidad_receta }}</td>
+                <td>
+                    <a href="/editar_ing/{{ ingrediente.id }}">Detalle</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
