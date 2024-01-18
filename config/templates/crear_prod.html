@@ -1,4 +1,11 @@
 {% extends 'base.html' %}
+
+{% load static %}
+
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/crear_prod.css' %}">
+{% endblock %}
+
 {% block content %}
     <h1>Crear producto</h1>
 

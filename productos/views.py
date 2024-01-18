@@ -3,19 +3,19 @@ from .forms import ProductoForm
 from .models import Producto
 
 # Create your views here.
-def v_list(request):
+def v_mostrar_prod(request):
     context = {
 
     }
-    return render(request, 'list.html', context)
+    return render(request, 'mostrar_prod.html', context)
 
-def v_create(request):
+def v_crear_prod(request):
     context = {
         'formulario': ProductoForm()
     }
-    return render(request, 'create.html', context)
+    return render(request, 'crear_prod.html', context)
 
-def v_update(request, producto_id):
+def v_editar_prod(request, producto_id):
     producto = Producto.objects.get(id = producto_id)
 
     if request.method == 'POST':
@@ -24,4 +24,4 @@ def v_update(request, producto_id):
         context = {
             'formedicion': ProductoForm(instance = producto)
         }
-    return render(request, 'update.html', context)
+    return render(request, 'editar_prod.html', context)
