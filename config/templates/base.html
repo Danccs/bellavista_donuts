@@ -8,11 +8,37 @@
     <title>Document</title>
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-
+   
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     {% block extrahead %}{% endblock %}
+    <nav><div id="hola"></div></nav>
 </head>
 <body>
+    <header class="header-nav">
+        <nav class="navbar">
+            <div class="logo">
+                <img class="img-donut" src="donut1.jpg">
+                <span>Bella Vista</span>
+            </div>
+            <div class="buscar">
+                <input type="text" placeholder="Buscar...">
+                <button><i class='bx bx-search-alt'></i></button>
+            </div>
+            
 
+        </nav>
+    </header>
+    <div class="container">
+        <ul>
+            <li class="li-a">
+                <i class='bx bxs-component'></i>
+                <a href="#">Productos</a></i></li>
+            <li class="li-a">
+                <i class='bx bxs-basket' ></i><a href="#">Ingredientes</a></li>
+            <li class="li-a">
+                <i class='bx bxs-store' ></i><a href="#">Proveedores</a></li>
+        </ul>
+    </div>
 
     {% block content %}
 

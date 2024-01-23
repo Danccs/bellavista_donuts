@@ -1,0 +1,130 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    height: 100vh;
+    font-family:Arial, Helvetica, sans-serif ;
+    margin: 0;
+    background: rgb(255, 255, 255);
+    
+}
+
+.header-nav {
+    display: flex;
+    justify-content: center;
+    background: #ffffff;
+    justify-content: space-between;  
+}
+
+.navbar {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+
+}
+
+.buscar {
+    position: relative;
+    
+}
+
+.buscar input {
+    padding: 10px;
+    padding-left: 45px;
+    border-radius: 15px 0 0 15px;
+    
+}
+
+.buscar button {
+    width: 45px;
+    height: 40px;
+    background-color: rgb(178, 27, 52);
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: auto;
+    border: 0;
+    bottom: 0;
+    border-radius: 0 15px 15px 0;
+    color: #fff;
+    cursor: pointer; 
+}
+
+.buscar button:hover {
+    background-color: rgb(195, 87, 90);
+    
+}
+
+.logo {
+    display: flex;
+    position: relative;
+}
+
+.logo span {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px ;
+    font-size: 20px;
+    font-family: monospace
+}
+
+.img-donut {
+    height: 4rem;
+    width: 4rem;
+    background-color: transparent;
+    position: relative;
+
+}
+
+.container {
+    height: 100%;
+    background: #101720;
+    display: flex;
+    flex-direction: column;
+    width: 12rem;
+    padding-bottom: 100px !important;
+    position: relative;
+    min-width: 10%;
+    border: 0;
+    border-radius: 0px 25px 0 0;
+    color: #fff;
+    justify-content: start;
+    
+
+}
+
+.container li:hover{
+    background-color: rgb(96, 126, 134);
+}
+
+.li-a {
+    list-style-type: none;
+    margin-top: 30px;
+    margin-left: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    padding: 15px 10px;
+    border-radius: 15px 0 0 15px;
+
+}
+
+.li-a a {
+    text-decoration: none;
+    color:white;
+
+}
+
+.li-a i {
+    margin-right: 10px;
+}
+
