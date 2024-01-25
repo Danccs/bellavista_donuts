@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect, reverse
-from .forms import ProductoForm, IngredienteForm
-from .models import Producto, Ingrediente
+from .forms import ProductoForm, IngredienteForm, ProveedorForm, ProductoIngredienteForm
+from .models import Producto, Ingrediente, Proveedor, ProductoIngrediente
 
 # Create your views here.
 def v_mostrar_prod(request):
@@ -14,8 +14,19 @@ def v_crear_prod(request):
     if request.method == 'POST':
         datos = request.POST.copy()
         formcrear = ProductoForm(datos)
-        if formcrear.is_valid():
-            formcrear.save()
+        form_producto_ingrediente = ProductoIngredienteForm(datos)
+
+        if formcrear.is_valid() and form_producto_ingrediente.is_valid():
+            producto = formcrear.save()
+            ingrediente = form_producto_ingrediente.cleaned_data['ingrediente']
+
+            ProductoIngrediente.objects.create(
+                producto=producto,
+                ingrediente=ingrediente,
+                cantidad_ingrediente=form_producto_ingrediente.cleaned_data['cantidad_ingrediente']
+            )
+
+
             return HttpResponseRedirect("/")
 
     context = {
@@ -75,3 +86,40 @@ def v_editar_ing(request, ingrediente_id):
             'formedicion': IngredienteForm(instance = ingrediente)
         }
     return render(request, 'editar_ing.html', context)
+
+#Para proveedores
+def v_mostrar_prov(request):
+    context = {
+        'proveedores': Proveedor.objects.all()
+
+    }
+    return render(request, 'mostrar_prov.html', context)
+
+def v_crear_prov(request):
+    if request.method == 'POST':
+        datos = request.POST.copy()
+        formcrear = ProveedorForm(datos)
+        if formcrear.is_valid():
+            formcrear.save()
+            return HttpResponseRedirect(reverse('mostrar_prov'))
+
+    context = {
+        'formulario': ProveedorForm()
+    }
+    return render(request, 'crear_prov.html', context)
+
+def v_editar_prov(request, proveedor_id):
+    proveedor = Proveedor.objects.get(id = proveedor_id)
+
+    if request.method == 'POST':
+        datos = request.POST.copy()
+        formeditar = ProveedorForm(datos, instance= proveedor)
+        if formeditar.is_valid():
+            formeditar.save()
+            return render(request, 'editar_prov.html', {'formedicion': formeditar, 
+                                                        'proveedor': proveedor})    
+    else:
+        context = {
+            'formedicion': ProveedorForm(instance = proveedor)
+        }
+    return render(request, 'editar_prov.html', context)
