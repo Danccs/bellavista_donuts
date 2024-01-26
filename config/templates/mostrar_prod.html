@@ -1,18 +1,38 @@
 {% extends 'base.html' %}
-{% block content %}
-    <h1>Productos</h1>
+{% load static %}
 
-    <table>
-        <tbody>
-            {% for producto in productos %}
-            <tr>
-                <td>{{ producto.codigo }}</td>
-                <td>{{ producto.nombre }}</td>
-                <td>
-                    <a href="/editar_prod/{{ producto.id }}">Detalle</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+{% block extrahead %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mostrar_prod.css' %}">
+{% endblock %}
+
+{% block content %}
+<main>
+    <h2 class="todo-productos">productos</h2>
+    <div class="contenedor-prod">
+        <div class="productos">
+            <img src="" alt="">
+            <button class="detalles-btn">Detalles</button>
+        </div>
+        <div class="productos">
+            <img src="" alt="">
+            <button class="detalles-btn">Detalles</button>
+        </div>
+        <div class="productos">
+            <img src="" alt="">
+            <button class="detalles-btn">Detalles</button>
+        </div>
+        <div class="productos">
+            <img src="" alt="">
+            <button class="detalles-btn">Detalles</button>
+        </div>
+        <div class="productos">
+            <img src="" alt="">
+            <button class="detalles-btn">Detalles</button>
+        </div>
+        <div class="productos">
+            <img src="" alt="">
+            <button class="detalles-btn">Detalles</button>
+        </div>
+    </div>
+</main>
 {% endblock %}
