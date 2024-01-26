@@ -46,7 +46,7 @@ def v_editar_prod(request, producto_id):
                                                         'producto': producto})    
     else:
         context = {
-            'formedicion': ProductoForm(instance = producto)
+            'formedicion': ProductoForm(instance = producto),
         }
     return render(request, 'editar_prod.html', context)
 

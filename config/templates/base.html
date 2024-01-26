@@ -14,10 +14,11 @@
     <nav><div id="hola"></div></nav>
 </head>
 <body>
+
     <header class="header-nav">
         <nav class="navbar">
             <div class="logo">
-                <img class="img-donut" src="donut1.jpg">
+                <img class="img-donut" src="#">
                 <span>Bella Vista</span>
             </div>
             <div class="buscar">
@@ -32,15 +33,15 @@
         <ul>
             <li class="li-a">
                 <i class='bx bxs-component'></i>
-                <a href="#">Productos</a></i>
+                <a href="{% url 'mostrar_prod' %}">Productos</a></i>
                 <a class="tips" href="#">
                     Donas
                   </a></li>
 
             <li class="li-a">
-                <i class='bx bxs-basket' ></i><a href="#">Ingredientes</a></li>
+                <i class='bx bxs-basket' ></i><a href="{% url 'mostrar_ing' %}">Ingredientes</a></li>
             <li class="li-a">
-                <i class='bx bxs-store' ></i><a href="#">Proveedores</a></li>
+                <i class='bx bxs-store' ></i><a href="{% url 'mostrar_prov' %}">Proveedores</a></li>
         </ul>
     </div>
     
