@@ -1,25 +1,47 @@
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
     
 }
 
+/* Estilos para pantallas grandes */
+@media screen and (min-width: 768px) {
+    /* Tus estilos para pantallas grandes aquí */
+  }
+  
+  /* Estilos para pantallas pequeñas */
+  @media screen and (max-width: 767px) {
+    /* Tus estilos para pantallas pequeñas aquí */
+  }
+  
+  :root {
+    --clr-main: #4b33a8;
+    --clr-main-light: #785ce9;
+    --clr-white: #ececec;
+    --clr-gray: #e2e2e2;
+    --clr-red: #961818;
+  }
 
 body {
-    height: 100vh;
+   
     font-family:Arial, Helvetica, sans-serif ;
     margin: 0;
-    background: rgb(255, 255, 255);
-    
+    padding: 0;
+    background-color: var(--clr-main);
+    color: var(--clr-white);
+}
+
+.todo {
+    display: grid;
+    grid-template-columns: 0.6fr 4fr;
+
 }
 
 .header-nav {
     display: flex;
-    justify-content: center;
-    background: #ffffff;
+    justify-content: start;
+    background: var(--clr-main);
     justify-content: space-between;  
+    color: var(--clr-white);
 }
 
 .navbar {
@@ -39,15 +61,15 @@ body {
 
 .buscar input {
     padding: 10px;
-    padding-left: 45px;
-    border-radius: 15px 0 0 15px;
+    padding-left: 180px;
+    border-radius: 15px 15px 15px 15px;
     
 }
 
 .buscar button {
     width: 45px;
     height: 40px;
-    background-color: rgb(178, 27, 52);
+    background-color: var(--clr-red);
     position: absolute;
     top: 0;
     right: 0;
@@ -74,8 +96,10 @@ body {
     align-items: center;
     text-align: center;
     padding: 15px ;
-    font-size: 20px;
-    font-family: monospace
+    font-size: 35px;
+    font-family: "Latin Modern Roman";
+    font-style: italic;
+    color: rgb(251, 251, 251);
 }
 
 .img-donut {
@@ -87,46 +111,63 @@ body {
 }
 
 .container {
-    height: 100%;
-    background: #101720;
+    height: 100vh;
+    background: var(--clr-main);
     display: flex;
     flex-direction: column;
-    width: 12rem;
-    padding-bottom: 100px !important;
-    position: relative;
+    padding-right: 0;
+    position: sticky;
     min-width: 10%;
     border: 0;
-    border-radius: 0px 25px 0 0;
-    color: #fff;
-    justify-content: start;
+    color: var(--clr-white);
+    justify-content: space-between;
+    margin: 50px 0 0 0;
+    
+    
     
 
 }
 
-.container li:hover{
-    background-color: rgb(96, 126, 134);
+ul {
+    padding: 0;
 }
 
-.li-a {
+.btn-menu:hover {
+    background-color: var(--clr-white);
+    color: var(--clr-main);
+
+}
+
+.btn-menu{
     list-style-type: none;
-    margin-top: 30px;
+    margin-top: 25px;
     margin-left: 10px;
-    font-size: 18px;
+    padding-right: 0;
+    font-size: 25px;
     cursor: pointer;
     position: relative;
     display: flex;
-    padding: 15px 10px;
+    padding: 1rem 2rem;
+    
     border-radius: 15px 0 0 15px;
+    
 
 }
 
-.li-a a {
+.btn-menu a {
     text-decoration: none;
-    color:white;
+    color: var(--clr-white);
 
 }
 
-.li-a i {
+.btn-menu a:hover {
+    color: var(--clr-main);
+    padding: 0;
+    
+}
+
+
+.btn-menu i {
     margin-right: 10px;
 }
 
