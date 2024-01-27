@@ -14,7 +14,7 @@
     <nav><div id="hola"></div></nav>
 </head>
 <body>
-
+    
     <header class="header-nav">
         <nav class="navbar">
             <div class="logo">
@@ -25,18 +25,16 @@
                 <input type="text" placeholder="Buscar...">
                 <button><i class='bx bx-search-alt'></i></button>
             </div>
-            
-
         </nav>
     </header>
+
+    <div class="todo">
     <div class="container">
         <ul>
             <li class="li-a">
                 <i class='bx bxs-component'></i>
                 <a href="{% url 'mostrar_prod' %}">Productos</a></i>
-                <a class="tips" href="#">
-                    Donas
-                  </a></li>
+            </li>
 
             <li class="li-a">
                 <i class='bx bxs-basket' ></i><a href="{% url 'mostrar_ing' %}">Ingredientes</a></li>
@@ -49,6 +47,6 @@
 
     {% endblock %}
 
-
+    </div>
 </body>
 </html>
