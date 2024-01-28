@@ -7,18 +7,7 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Crear producto</h1>
 
-    <form method="post">
-        {% csrf_token %}
-
-        {{ formulario.as_p }}
-
-        {% for campo in formulario.producto_ingrediente %}
-            {{ campo }}
-        {% endfor %}
-
-        <button type="submit">Guardar</button>
-    </form>
+<!-- Luis escribe tu código aquí dentro de block content -->
 
 {% endblock %}
