@@ -29,6 +29,8 @@ def v_crear_prod(request):
                 cantidad_ingrediente=form_producto_ingrediente.cleaned_data['cantidad_ingrediente']
             )
 
+            if "agregar_otro" in request.POST:
+                return HttpResponseRedirect(reverse("crear_prod"))
 
             return HttpResponseRedirect("/")
 
