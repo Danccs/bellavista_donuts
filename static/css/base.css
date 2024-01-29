@@ -4,13 +4,16 @@
 }
 
 /* Estilos para pantallas grandes */
-@media screen and (min-width: 768px) {
+@media  (min-width: 768px) {
     /* Tus estilos para pantallas grandes aquí */
   }
   
   /* Estilos para pantallas pequeñas */
-  @media screen and (max-width: 767px) {
-    /* Tus estilos para pantallas pequeñas aquí */
+@media  (max-width: 767px) {
+    * {
+        flex-direction: column;
+        
+    }
   }
   
   :root {
@@ -171,3 +174,4 @@ ul {
     margin-right: 10px;
 }
 
+@

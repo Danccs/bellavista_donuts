@@ -7,7 +7,54 @@
 {% endblock %}
 
 {% block content %}
+<form>
+    <div class="container_registro">
+        <div class="titulo_reg">Registro de Nuevo Producto</div>
+        <div class="agregar_prod">
+                <label for="nombre">Nombre: </label>
+                <input type="text" name="Nombre" id="Nombre"/>
+           
+                <label for="codigo">Codigo: </label>
+                <input type="text" name="codigo" id="codigo"/>
+            
+                <label for="elaboracion">Elaboracion: </label>
+                <textarea id="descripcion_producto" name="descripcion_producto" rows="2" required></textarea>
+           
+                <label for="punto_c">Punto Crítico: </label>
+                <textarea id="descripcion_producto" name="descripcion_producto" rows="2" required></textarea>
+           
+                <label for="insumos">Insumos y Herramientas: </label>
+                <textarea id="descripcion_producto" name="descripcion_producto" rows="2" required></textarea>
+        </div> 
 
-<!-- Luis escribe tu código aquí dentro de block content -->
+        <div class="fm-agregar-ingredientes">
+        <label for="ingredientes">INGREDIENTES</label>
+        <div>
+          <select name="ingredientes" id="ingredientes">
+            <option value="">Hola</option>
+            <option value="">adio`s</option>
+            <option value="">chao</option>
+            <option value="">hello</option>
+          </select>
+        <input type="button" value="➕" />
+         
+        </div>
 
+        <label for="cantidad-ingredientes">CANTIDAD INGREDIENTES</label>
+        <input name="cantidad-ingredientes" id="cantidad-ingredientes" type="text" />
+        <label for="">DELETE?</label>
+        <div class="fm-button-delete">
+          <input type="button" value="❌" />
+        </div>
+      </div>
+
+      <div class="fm-buttons-submit">
+        <input type="submit" value="Guardar y agregar otro" />
+        <input type="submit" value="Guardar y continuar editando" />
+        <input type="submit" value="Guardar" />
+      </div>
+        <button class="crear_producto">Agregar</button>
+        
+    </div>
+</form>
 {% endblock %}
