@@ -43,7 +43,7 @@ def v_editar_prod(request, producto_id):
 
     if request.method == 'POST':
         datos = request.POST.copy()
-        formeditar = ProductoForm(datos, instance= producto)
+        formeditar = ProductoForm(datos, request.FILES, instance= producto)
         if formeditar.is_valid():
             formeditar.save()
             return render(request, 'editar_prod.html', {'formedicion': formeditar, 
