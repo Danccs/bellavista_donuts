@@ -10,7 +10,7 @@ class ProductoIngredienteInline(admin.TabularInline):
 
 class ProductoAdmin(admin.ModelAdmin):
     inlines = [ProductoIngredienteInline, ]
-    list_display = ('id', 'codigo', 'nombre')
+    list_display = ('id', 'codigo', 'nombre', 'imagen')
 
 class IngredienteAdmin(admin.ModelAdmin):
     inlines = (ProductoIngredienteInline,)

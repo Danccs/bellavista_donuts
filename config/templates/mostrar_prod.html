@@ -6,48 +6,26 @@
 {% endblock %}
 
 {% block content %}
-        <main>
-             <h2 class="titulo-prod">Productos</h2>
-            <div class="contenedor-prod">
-               
-                <div class="producto">
-                    <button>
-                    <img src="" alt="">
-                    <div class="producto-detalles">
-                        <h3 class="nombre-prod">Aqui van los nombre de las donas</h3>
-                    </button>
-                    </div>
-                <div class="producto">
-                    <button>
-                    <img src="" alt="">
-                    <div class="producto-detalles">
-                        <h3 class="nombre-prod">Aqui van los nombre de las donas</h3>
-                    </button>
-                    </div>
-                <div  class="producto">
-                    <button>
-                    <img src="" alt="">
-                    <div class="producto-detalles">
-                        <h3 class="nombre-prod">Aqui van los nombre de las donas</h3>
-                    </button>
-                    </div>
-                <div  class="producto">
-                    <button>
-                    <img src="" alt="">
-                    <div class="producto-detalles">
-                        <h3 class="nombre-prod">Aqui van los nombre de las donas</h3>
-                    </button>
-                 </div>
-                 <div  class="producto">
-                    <button>
-                    <img src="" alt="">
-                    <div class="producto-detalles">
-                        <h3 class="nombre-prod">Aqui van los nombre de las donas</h3>
-                    </button>
-                 </div>
+<main>
+    <h2 class="titulo-prod">Productos</h2>
+    <div class="contenedor-prod">
 
-            </div>
-               
-            </div>
-        </main>
+        {% for producto in productos %}
+        <div class="producto">
+            <button>
+                {% if producto.imagen %}
+                <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
+                {% else %}
+                No hay imagen disponible
+                {% endif %}
+                <div class="producto-detalles">
+                    <h3 class="nombre-prod">Código: {{ producto.codigo }}</h3>
+                    <h3 class="nombre-prod">Producto: {{ producto.nombre }}</h3>
+            </button>
+        </div>
+        {% endfor %}
+
+    </div>
+
+</main>
 {% endblock %}

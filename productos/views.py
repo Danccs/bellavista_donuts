@@ -13,11 +13,14 @@ def v_mostrar_prod(request):
 def v_crear_prod(request):
     if request.method == 'POST':
         datos = request.POST.copy()
+        datos.update(request.FILES) #para la carga de imagen
         formcrear = ProductoForm(datos)
         form_producto_ingrediente = ProductoIngredienteForm(datos)
 
         if formcrear.is_valid() and form_producto_ingrediente.is_valid():
-            producto = formcrear.save()
+            producto = formcrear.save(commit=False) #no guardar aún, hay que agregar la imagen
+            producto.imagen = request.FILES.get('imagen')
+            producto.save()
             ingrediente = form_producto_ingrediente.cleaned_data['ingrediente']
 
             ProductoIngrediente.objects.create(
@@ -34,12 +37,13 @@ def v_crear_prod(request):
     }
     return render(request, 'crear_prod.html', context)
 
+
 def v_editar_prod(request, producto_id):
     producto = Producto.objects.get(id = producto_id)
 
     if request.method == 'POST':
         datos = request.POST.copy()
-        formeditar = ProductoForm(datos, instance= producto)
+        formeditar = ProductoForm(datos, request.FILES, instance= producto)
         if formeditar.is_valid():
             formeditar.save()
             return render(request, 'editar_prod.html', {'formedicion': formeditar, 
@@ -49,6 +53,7 @@ def v_editar_prod(request, producto_id):
             'formedicion': ProductoForm(instance = producto),
         }
     return render(request, 'editar_prod.html', context)
+
 
 #Para ingredientes:
 def v_mostrar_ing(request):
@@ -86,6 +91,7 @@ def v_editar_ing(request, ingrediente_id):
             'formedicion': IngredienteForm(instance = ingrediente)
         }
     return render(request, 'editar_ing.html', context)
+
 
 #Para proveedores
 def v_mostrar_prov(request):

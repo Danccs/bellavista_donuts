@@ -31,6 +31,8 @@ class Producto(models.Model):
     puntos_criticos = models.TextField()
     insumos_herramientas = models.TextField(default='')
     ingredientes = models.ManyToManyField(Ingrediente, through="ProductoIngrediente")
+    imagen = models.ImageField(upload_to='up_images/', null=True, blank=True)
+
 
     
     def __str__(self):

@@ -2,10 +2,14 @@
 {% block content %}
 <h1>Editar</h1>
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ formedicion.as_p }}
 
+    {% if producto.imagen %}
+    <p>Imagen actual:</p>
+    <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
+    {% endif %}
 
     <button type="submit">Guardar</button>
 </form>
