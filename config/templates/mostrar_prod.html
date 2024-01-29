@@ -14,7 +14,7 @@
         <div class="producto">
             <button>
                 {% if producto.imagen %}
-                <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
+                <img class="producto-imagen" src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
                 {% else %}
                 No hay imagen disponible
                 {% endif %}
