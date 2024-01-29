@@ -7,54 +7,64 @@
 {% endblock %}
 
 {% block content %}
-<form>
-    <div class="container_registro">
-        <div class="titulo_reg">Registro de Nuevo Producto</div>
-        <div class="agregar_prod">
-                <label for="nombre">Nombre: </label>
-                <input type="text" name="Nombre" id="Nombre"/>
-           
-                <label for="codigo">Codigo: </label>
-                <input type="text" name="codigo" id="codigo"/>
-            
-                <label for="elaboracion">Elaboracion: </label>
-                <textarea id="descripcion_producto" name="descripcion_producto" rows="2" required></textarea>
-           
-                <label for="punto_c">Punto Crítico: </label>
-                <textarea id="descripcion_producto" name="descripcion_producto" rows="2" required></textarea>
-           
-                <label for="insumos">Insumos y Herramientas: </label>
-                <textarea id="descripcion_producto" name="descripcion_producto" rows="2" required></textarea>
-        </div> 
 
-        <div class="fm-agregar-ingredientes">
-        <label for="ingredientes">INGREDIENTES</label>
-        <div>
-          <select name="ingredientes" id="ingredientes">
-            <option value="">Hola</option>
-            <option value="">adio`s</option>
-            <option value="">chao</option>
-            <option value="">hello</option>
-          </select>
-        <input type="button" value="➕" />
-         
-        </div>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="container_registro">
+    <div class="titulo_reg">Registro de Nuevo Producto</div>
+    <div class="agregar_prod">
+      <label for="{{ formulario.nombre.id_for_label }}">Nombre: </label>
+      <input type="text" name="nombre" id="{{ formulario.nombre.id_for_label }}" />
 
-        <label for="cantidad-ingredientes">CANTIDAD INGREDIENTES</label>
-        <input name="cantidad-ingredientes" id="cantidad-ingredientes" type="text" />
-        <label for="">DELETE?</label>
-        <div class="fm-button-delete">
-          <input type="button" value="❌" />
-        </div>
-      </div>
+      <label for="{{ formulario.codigo.id_for_label }}">Código: </label>
+      <input type="text" name="codigo" id="{{ formulario.codigo.id_for_label }}" />
 
-      <div class="fm-buttons-submit">
-        <input type="submit" value="Guardar y agregar otro" />
-        <input type="submit" value="Guardar y continuar editando" />
-        <input type="submit" value="Guardar" />
-      </div>
-        <button class="crear_producto">Agregar</button>
-        
+      <label for="{{ formulario.elaboracion.id_for_label }}">Elaboracion: </label>
+      <textarea id="{{ formulario.elaboracion.id_for_label }}" name="elaboracion" rows="2" required></textarea>
+
+      <label for="{{ formulario.puntos_criticos.id_for_label }}">Punto Crítico: </label>
+      <textarea id="{{ formulario.puntos_criticos.id_for_label }}" name="puntos_criticos" rows="2" required></textarea>
+
+      <label for="{{ formulario.insumos_herramientas.id_for_label }}">Insumos y Herramientas: </label>
+      <textarea id="{{ formulario.insumos_herramientas.id_for_label }}" name="insumos_herramientas" rows="2"
+        required></textarea>
+
+      <label for="{{ formulario.imagen.id_for_label }}">Imagen: </label>
+      <input type="file" name="imagen" id="{{ formulario.imagen.id_for_label }}" />
+
     </div>
+
+    <div class="fm-agregar-ingredientes">
+      {% for campo in formulario.producto_ingrediente %}
+      <label for="{{ campo.id_for_label }}">
+        {% if campo.label_tag %}
+        {{ campo.label_tag }}
+        {% endif %}
+      </label>
+
+      <div>
+        {{ campo }}
+        {% if campo.name == 'ingrediente' %}
+        <input type="button" value="➕" />
+        {% endif %}
+      </div>
+
+      {% if campo.name == 'cantidad_ingrediente' %}
+      <label for="">DELETE?</label>
+      <div class="fm-button-delete">
+        <input type="button" value="❌" />
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="fm-buttons-submit">
+      <input type="submit" value="Guardar y agregar otro" />
+      <input type="submit" value="Guardar y continuar editando" />
+      <button type="submit">Guardar</button>
+    </div>
+
+  </div>
+
 </form>
 {% endblock %}
