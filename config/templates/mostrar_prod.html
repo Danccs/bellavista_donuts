@@ -12,16 +12,18 @@
 
         {% for producto in productos %}
         <div class="producto">
-            <button>
-                {% if producto.imagen %}
-                <img class="producto-imagen" src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
-                {% else %}
-                No hay imagen disponible
-                {% endif %}
-                <div class="producto-detalles">
-                    <h3 class="nombre-prod">Código: {{ producto.codigo }}</h3>
-                    <h3 class="nombre-prod">Producto: {{ producto.nombre }}</h3>
-            </button>
+            <a href="{% url 'editar_prod' producto_id=producto.id %}">
+                <button>
+                    {% if producto.imagen %}
+                    <img class="producto-imagen" src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
+                    {% else %}
+                    No hay imagen disponible
+                    {% endif %}
+                    <div class="producto-detalles">
+                        <h3 class="nombre-prod">Código: {{ producto.codigo }}</h3>
+                        <h3 class="nombre-prod">Producto: {{ producto.nombre }}</h3>
+                </button>
+            </a>
         </div>
         {% endfor %}
 
