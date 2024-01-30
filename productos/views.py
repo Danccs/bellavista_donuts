@@ -70,7 +70,17 @@ def v_crear_ing(request):
         datos = request.POST.copy()
         formcrear = IngredienteForm(datos)
         if formcrear.is_valid():
-            formcrear.save()
+            ingrediente = formcrear.save(commit=False)
+
+            #obteniendo el proveedor seleccionado desde el formulario
+            proveedor_id = datos['proveedor']
+            proveedor = Proveedor.objects.get(pk=proveedor_id)
+
+            ingrediente.save()
+
+            #asignando el proveedor usando el método set(), por django
+            ingrediente.proveedor.set([proveedor])
+
             return HttpResponseRedirect(reverse('mostrar_ing'))
 
     context = {
