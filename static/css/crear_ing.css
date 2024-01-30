@@ -1,0 +1,49 @@
+:root {
+    --clr-main: #4b33a8;
+    --clr-main-light: #785ce9;
+    --clr-white: #ececec;
+    --clr-gray: #e2e2e2;
+    --clr-red: #961818;
+  }
+
+.container_crear_ing {
+    
+    background-color: var(--clr-white);
+    color: var(--clr-main);
+    padding: 3rem 0 0 2rem;
+    height: 88vh;
+    margin: 0 15px 0 0;
+    
+
+}
+
+.titulo_reg_ing {
+    font-size: 3rem;
+    
+}
+
+.agregar_ing {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 150px 2fr;
+    font-size: 20px;
+    margin: 20px;
+    gap: 15px;
+
+}
+
+.agregar_ing input {
+    width: 20rem;
+    margin: 10ps;
+}
+
+.agregar_proveedor {
+    display: grid;
+    grid-template-columns: 165px 2fr;
+}
+.btn_agregar_ing {
+    margin:  0 0 0 35rem;
+    font-size: 15px;
+    background-color: rgb(10, 220, 10);
+    
+}

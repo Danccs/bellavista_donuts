@@ -7,7 +7,40 @@
 {% endblock %}
 
 {% block content %}
+<div>
+    <div class="container_prov">
+    <div class="titulo_reg_prov">Registro de Nuevo ingrediente</div>
+    
+            <div class="agregar_prov">
 
-<!--Puedes escribir tu código aquí Luis-->
+            <label for="{{ formulario.nombre.id_for_label }}">Nombre: </label>
+            <input type="text" name="nombre" id="{{ formulario.nombre.id_for_label }}" />
+
+            <label for="{{ formulario.direccion.id_for_label }}">Direccion: </label>
+            <input type="text" name="direccion" id="{{ formulario.direccion.id_for_label }}" />
+
+            <label for="{{ formulario.telefono_ofi.id_for_label }}">Telefono de Oficina: </label>
+            <input type="text" name="telefono_ofi" id="{{ formulario.telefono_ofi.id_for_label }}" />
+
+            <label for="{{ formulario.correo.id_for_label }}">Correo: </label>
+            <input type="text" name="correo" id="{{ formulario.correo.id_for_label }}" />
+
+            <label for="{{ formulario.horario_atencion.id_for_label }}">Horario de Atencion: </label>
+            <input type="text" name="horario_atencion" id="{{ formulario.horario_atencion.id_for_label }}" />
+
+            <label for="{{ formulario.nombre_contacto.id_for_label }}">Nombre de Contacto: </label>
+            <input type="text" name="nombre_contacto" id="{{ formulario.nombre_contacto.id_for_label }}" />
+
+            <label for="{{ formulario.telefono_contacto.id_for_label }}">Telefono de Contacto: </label>
+            <input type="text" name="telefono_contacto" id="{{ formulario.telefono_contacto.id_for_label }}" />
+
+            <label for="{{ formulario.correo_contacto.id_for_label }}">correo_contacto: </label>
+            <input type="text" name="correo_contacto" id="{{ correo_contactorio.correo_contacto.id_for_label }}" />
+
+            
+        </div>
+        <button class="btn_agregar_prov">Guardar</button>
+    </div>
+    </div>
 
 {% endblock %}
