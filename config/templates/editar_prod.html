@@ -11,6 +11,24 @@
     <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
     {% endif %}
 
+    {% for ingrediente_asociado in ingredientes_asociados %}
+    <label for="ingrediente_{{ ingrediente_asociado.id }}">Ingrediente: </label>
+    <select name="ingrediente_{{ ingrediente_asociado.id }}" id="ingrediente_{{ ingrediente_asociado.id }}">
+        <option value="{{ ingrediente_asociado.ingrediente.id }}" selected>{{ ingrediente_asociado.ingrediente.nombre }}
+        </option>
+        {% for ingrediente in todos_los_ingredientes %}
+        {% if ingrediente.id != ingrediente_asociado.ingrediente.id %}
+        <option value="{{ ingrediente.id }}">{{ ingrediente.nombre }}</option>
+        {% endif %}
+        {% endfor %}
+    </select>
+
+    <label for="cantidad_{{ ingrediente_asociado.id }}">Cantidad: </label>
+    <input type="text" name="cantidad_{{ ingrediente_asociado.id }}" id="cantidad_{{ ingrediente_asociado.id }}"
+        value="{{ ingrediente_asociado.cantidad_ingrediente }}">
+    <br>
+    {% endfor %}
+
     <button type="submit">Guardar</button>
 </form>
 {% endblock %}
