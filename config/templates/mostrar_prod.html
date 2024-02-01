@@ -7,16 +7,29 @@
 
 {% block content %}
 <main>
+    <div class="filtro">
+        <i class='bx bx-filter-alt'></i>
+            <select name="tipo_toda" id="{{tipo_dona }}">
+                <option value="">Todo</option>
+                <option value="">Rellenas </option>
+                <option value="">Clasicas </option>
+            </select>
+
+                <button>Activo</button>
+                <button>Inactivo</button>
+                <button>Todo</button>
+    </div>
+       
     <h2 class="titulo-prod">Productos</h2>
     <div class="contenedor-prod">
-
+            
         {% for producto in productos %}
         <div class="producto">
             <a href="{% url 'editar_prod' producto_id=producto.id %}">
                 <button>
                     {% if producto.imagen %}
                     <img class="producto-imagen" src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
-                    {% else %}
+                     {% else %}
                     No hay imagen disponible
                     {% endif %}
                     <div class="producto-detalles">
