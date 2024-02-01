@@ -42,20 +42,40 @@ def v_crear_prod(request):
 
 def v_editar_prod(request, producto_id):
     producto = Producto.objects.get(id = producto_id)
+    ingredientes_asociados = ProductoIngrediente.objects.filter(producto=producto)
+    todos_los_ingredientes = Ingrediente.objects.all()
 
     if request.method == 'POST':
-        datos = request.POST.copy()
-        formeditar = ProductoForm(datos, request.FILES, instance= producto)
+        formeditar = ProductoForm(request.POST, request.FILES, instance=producto)
         if formeditar.is_valid():
             formeditar.save()
-            return render(request, 'editar_prod.html', {'formedicion': formeditar, 
-                                                        'producto': producto})    
-    else:
-        context = {
-            'formedicion': ProductoForm(instance = producto),
-        }
-    return render(request, 'editar_prod.html', context)
 
+            for ingrediente_asociado in ingredientes_asociados:
+                cantidad_key = f'cantidad_{ingrediente_asociado.id}'
+                ingrediente_id = request.POST.get(f'ingrediente_{ingrediente_asociado.id}')
+
+                # Verifica si el ingrediente ha cambiado
+                if str(ingrediente_asociado.ingrediente.id) != ingrediente_id:
+                    nuevo_ingrediente = Ingrediente.objects.get(id=ingrediente_id)
+                    ingrediente_asociado.ingrediente = nuevo_ingrediente
+
+                # Actualiza la cantidad
+                ingrediente_asociado.cantidad_ingrediente = request.POST.get(cantidad_key)
+                ingrediente_asociado.save()
+
+            return render(request, 'editar_prod.html', {'formedicion': formeditar, 
+                                                        'producto': producto,
+                                                        'ingredientes_asociados': ingredientes_asociados,
+                                                        'todos_los_ingredientes': todos_los_ingredientes,})    
+    else:
+        formeditar = ProductoForm(instance=producto)
+        context = {
+            'formedicion': formeditar,
+            'ingredientes_asociados': ingredientes_asociados,
+            'todos_los_ingredientes': todos_los_ingredientes,
+        }
+
+    return render(request, 'editar_prod.html', context)
 
 #Para ingredientes:
 def v_mostrar_ing(request):
@@ -70,7 +90,17 @@ def v_crear_ing(request):
         datos = request.POST.copy()
         formcrear = IngredienteForm(datos)
         if formcrear.is_valid():
-            formcrear.save()
+            ingrediente = formcrear.save(commit=False)
+
+            #obteniendo el proveedor seleccionado desde el formulario
+            proveedor_id = datos['proveedor']
+            proveedor = Proveedor.objects.get(pk=proveedor_id)
+
+            ingrediente.save()
+
+            #asignando el proveedor usando el método set(), por django
+            ingrediente.proveedor.set([proveedor])
+
             return HttpResponseRedirect(reverse('mostrar_ing'))
 
     context = {

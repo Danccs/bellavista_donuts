@@ -18,7 +18,7 @@ class IngredienteAdmin(admin.ModelAdmin):
     list_display = ('id', 'nombre')
 
 class ProductoIngredienteAdmin(admin.ModelAdmin):
-    list_display = ('producto', 'ingrediente', 'cantidad_ingrediente')
+    list_display = ('id', 'producto', 'ingrediente', 'cantidad_ingrediente')
 class ProveedorAdmin(admin.ModelAdmin):
     list_display = ('nombre',)
 

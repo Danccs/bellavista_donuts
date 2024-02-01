@@ -7,31 +7,31 @@
 {% endblock %}
 
 {% block content %}
-<div class="container_crear_ing">
-    <div class="titulo_reg_ing">Registro de Nuevo ingrediente</div>
-    <div>
+<form method="post">
+    {% csrf_token %}
+
+    <div class="container_crear_ing">
+        <div class="titulo_reg_ing">Registro de nuevo ingrediente</div>
+        <div>
             <div class="agregar_ing">
-            <label for="{{ formulario.nombre.id_for_label }}">Nombre: </label>
-            <input type="text" name="nombre" id="{{ formulario.nombre.id_for_label }}" />
+                <label for="{{ formulario.nombre.id_for_label }}">Nombre: </label>
+                <input type="text" name="nombre" id="{{ formulario.nombre.id_for_label }}" />
 
-            <label for="{{ formulario.presentacion.id_for_label }}">Precentacion: </label>
-            <input type="text" name="presentacion" id="{{ formulario.presentacion.id_for_label }}" />
+                <label for="{{ formulario.presentacion.id_for_label }}">Presentación: </label>
+                <input type="text" name="presentacion" id="{{ formulario.presentacion.id_for_label }}" />
 
-            <label for="{{ formulario.unidad_receta.id_for_label }}">Unidad Receta: </label>
-            <input type="text" name="unidad_receta" id="{{ formulario.unidad_receta.id_for_label }}" />
-            
-            <div class="agregar_proveedor">
-                <label for="{{ formulario.proveedor.id_for_label }}">Proveedor</label>
-                <div>
-                <select name="proveedor" id="{{ formulario.proveedor.id_for_label }}">
-                    <option value="">Hola</option>
-                    <option value="">chiao ;)</option>
-                </select>
+                <label for="{{ formulario.unidad_receta.id_for_label }}">Unidad en receta: </label>
+                <input type="text" name="unidad_receta" id="{{ formulario.unidad_receta.id_for_label }}" />
+
+                <div class="agregar_proveedor">
+                    <label for="{{ formulario.proveedor.id_for_label }}">Proveedor</label>
+                    {{ formulario.proveedor }}
                 </div>
+
             </div>
+            <button class="btn_agregar_ing" type="submit">Guardar</button>
         </div>
-        <button class="btn_agregar_ing">Guardar</button>
     </div>
-</div>
-    
+</form>
+
 {% endblock %}
