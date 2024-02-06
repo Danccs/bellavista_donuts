@@ -1,8 +1,22 @@
 {% extends 'base.html' %}
-{% block content %}
-    <h1>Ingredientes</h1>
+{% load static %}
 
-    <table>
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/mostrar_ing.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container-mos-ing">
+<h1 class="titulo-mos-ing">Ingredientes</h1>
+
+    <table class="contenedor-mostrar-ing">
+        <thead>
+            <tr>
+                <td>Nombre</td>
+                <td>Presentacion</td>
+                <td>Unidad Receta</td>
+                <td>Detalle</td>
+            </tr>
+        </thead>
         <tbody>
             {% for ingrediente in ingredientes %}
             <tr>
@@ -16,4 +30,5 @@
             {% endfor %}
         </tbody>
     </table>
+</div>
 {% endblock %}

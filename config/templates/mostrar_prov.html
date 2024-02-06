@@ -1,17 +1,28 @@
 {% extends 'base.html' %}
-{% block content %}
-    <h1>Proveedores</h1>
+{% load static %}
 
-    <table>
-        <tbody>
-            {% for proveedor in proveedores %}
-            <tr>
-                <td>{{ proveedor.nombre }}</td>
-                <td>
-                    <a href="/editar_prov/{{ proveedor.id }}">Detalle</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/mostrar_prov.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="container-mostrar-prov">
+    <h1 class="titulo-mos-prov">Proveedores</h1>
+
+        <table>
+            <thead class="encabezado-prov">
+                <td>Nombre</td>
+                <td>Detalle</td>
+            </thead>
+            <tbody>
+                {% for proveedor in proveedores %}
+                <tr>
+                    <td>{{ proveedor.nombre }}</td>
+                    <td>
+                        <a href="/editar_prov/{{ proveedor.id }}">Detalle</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>  
 {% endblock %}
