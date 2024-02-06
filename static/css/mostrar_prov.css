@@ -1,0 +1,22 @@
+:root {
+    --clr-main: #4b33a8;
+    --clr-main-light: #785ce9;
+    --clr-white: #ececec;
+    --clr-gray: #e2e2e2;
+    --clr-red: #961818;
+  }
+
+  .container-mostrar-prov {
+    background-color: var(--clr-white);
+    color: var(--clr-main);
+    padding: 3rem 0 0 2rem;
+    height: 88vh;
+    margin: 0 15px 0 0;
+  }
+  .titulo-mos-prov{
+    font-size: 50px;
+  }
+
+  .encabezado-prov{
+    font-size: 30px;
+  }
