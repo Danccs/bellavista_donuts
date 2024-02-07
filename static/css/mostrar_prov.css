@@ -12,6 +12,7 @@
     padding: 3rem 0 0 2rem;
     height: 88vh;
     margin: 0 15px 0 0;
+    
   }
   .titulo-mos-prov{
     font-size: 50px;
@@ -19,4 +20,21 @@
 
   .encabezado-prov{
     font-size: 30px;
+  }
+
+  .contenedorProv {
+    background-color: rgba(96, 239, 191, 0.684);
+    height: 70%;
+    width: 30rem;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 4px 4px 8px rgba( 0, 0, 0, 0.3);
+    text-align: center;
+    padding-left: 30px;
+
+
+  }
+
+  .contenedorProv a {
+    text-decoration: none;
   }
