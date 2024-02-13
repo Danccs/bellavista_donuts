@@ -45,7 +45,7 @@
       <div>
         {{ campo }}
         {% if campo.name == 'ingrediente' %}
-        <input type="button" value="➕" />
+        
         {% endif %}
       </div>
 
@@ -53,6 +53,7 @@
       <label for="">DELETE?</label>
       <div class="fm-button-delete">
         <input type="button" value="❌" />
+        <input class="btn-agre" type="button" value="➕" />
       </div>
       {% endif %}
       {% endfor %}
