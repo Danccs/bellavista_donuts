@@ -11,10 +11,10 @@ class ProveedorForm(forms.ModelForm):
         model = Proveedor
         exclude = []
 class IngredienteForm(forms.ModelForm):
-    proveedor = forms.ModelChoiceField(queryset=Proveedor.objects.all(), empty_label="Seleccione un proveedor")
+    proveedor = forms.ModelMultipleChoiceField(queryset=Proveedor.objects.all())
     class Meta:
         model = Ingrediente
-        exclude = []
+        fields = '__all__'
 
 class ProductoForm(forms.ModelForm):
     producto_ingrediente = ProductoIngredienteForm()
