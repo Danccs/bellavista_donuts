@@ -1,0 +1,11 @@
+.container-editar-prov {
+    background-color: var(--clr-white);
+    color: var(--clr-main);
+    padding: 3rem 0 0 2rem;
+    height: 88vh;
+    margin: 0 15px 0 0;
+}
+
+.ti-editar-prov {
+    font-size: 30px;
+}
