@@ -31,6 +31,11 @@ main {
  
 }
 
+.btn-agregar{
+    margin-left: 70rem;
+    color: green;
+}
+
 
 .contenedor-prod {
     display: grid;
