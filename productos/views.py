@@ -145,17 +145,18 @@ def v_editar_ing(request, ingrediente_id):
     ingrediente = Ingrediente.objects.get(id=ingrediente_id)
 
     if request.method == 'POST':
-        datos = request.POST.copy()
-        formeditar = IngredienteForm(datos, instance=ingrediente)
+        formeditar = IngredienteForm(request.POST, instance=ingrediente)
         if formeditar.is_valid():
             formeditar.save()
-            return render(request, 'editar_ing.html', {'formedicion': formeditar,
-                                                       'ingrediente': ingrediente})
+            return render(request, 'editar_ing.html', {'formedicion': formeditar,})
     else:
+        formeditar = IngredienteForm(instance=ingrediente)
         context = {
-            'formedicion': IngredienteForm(instance=ingrediente)
+            'formedicion': formeditar,
         }
+
     return render(request, 'editar_ing.html', context)
+
 
 
 # Para proveedores

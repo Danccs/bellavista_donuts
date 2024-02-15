@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
-{% block content %}
-    <h1>Editar ingrediente</h1>
+{% load static %}
 
-    <form method="post">
-        {% csrf_token %}
-        {{ formedicion.as_p}}
-        <button type="submit">Guardar</button>
-    </form>
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/editar_ing.css' %}">
+{% endblock %}
+
+{% block content %}
+ <!--Luis aquí puedes agregar tu código-->
 {% endblock %}
