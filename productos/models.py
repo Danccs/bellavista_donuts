@@ -2,6 +2,18 @@ from django.db import models
 
 # Create your models here.
 
+class Tipo(models.Model):
+    nombre = models.CharField(max_length=128)
+
+    def __str__(self):
+        return self.nombre
+
+class Subtipo(models.Model):
+    nombre = models.CharField(max_length=128)
+    tipo = models.ForeignKey(Tipo, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.nombre
 class Proveedor(models.Model):
     nombre = models.CharField(max_length=128)
     direccion = models.TextField()
@@ -32,6 +44,8 @@ class Producto(models.Model):
     insumos_herramientas = models.TextField(default='')
     ingredientes = models.ManyToManyField(Ingrediente, through="ProductoIngrediente")
     imagen = models.ImageField(upload_to='up_images/', null=True, blank=True)
+    tipo = models.ForeignKey(Tipo, on_delete=models.PROTECT, default='')
+    subtipo = models.ForeignKey(Subtipo, on_delete=models.PROTECT, default='')
 
 
     
