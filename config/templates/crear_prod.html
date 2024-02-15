@@ -22,12 +22,18 @@
       <label for="{{ formulario.elaboracion.id_for_label }}">Elaboracion: </label>
       <textarea id="{{ formulario.elaboracion.id_for_label }}" name="elaboracion" rows="2" required></textarea>
 
-      <label for="{{ formulario.puntos_criticos.id_for_label }}">Punto Crítico: </label>
+      <label for="{{ formulario.puntos_criticos.id_for_label }}">Puntos críticos: </label>
       <textarea id="{{ formulario.puntos_criticos.id_for_label }}" name="puntos_criticos" rows="2" required></textarea>
 
       <label for="{{ formulario.insumos_herramientas.id_for_label }}">Insumos y Herramientas: </label>
       <textarea id="{{ formulario.insumos_herramientas.id_for_label }}" name="insumos_herramientas" rows="2"
         required></textarea>
+
+      <label for="{{ formulario.tipo.id_for_label }}">Tipo: </label>
+      {{ formulario.tipo }}
+
+      <label for="{{ formulario.subtipo.id_for_label }}">Subtipo: </label>
+      {{ formulario.subtipo }}
 
       <label for="{{ formulario.imagen.id_for_label }}">Imagen: </label>
       <input type="file" name="imagen" id="{{ formulario.imagen.id_for_label }}" />
@@ -45,7 +51,7 @@
       <div>
         {{ campo }}
         {% if campo.name == 'ingrediente' %}
-        
+
         {% endif %}
       </div>
 
@@ -56,11 +62,12 @@
         <input class="btn-agre" type="button" value="➕" />
       </div>
       {% endif %}
+      
       {% endfor %}
     </div>
 
     <div class="fm-buttons-submit">
-      <input type="submit" value="Guardar y agregar otro" name="agregar_otro"/>
+      <input type="submit" value="Guardar y agregar otro" name="agregar_otro" />
       <input type="submit" value="Guardar" />
     </div>
 

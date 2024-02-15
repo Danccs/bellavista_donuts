@@ -37,6 +37,11 @@ def v_crear_prod(request):
                 return HttpResponseRedirect(reverse("crear_prod"))
 
             return HttpResponseRedirect("/")
+        
+        else:
+            print("¡Formularios no válidos!")
+            print("Errores en ProductoForm:", formcrear.errors)
+            print("Errores en ProductoIngredienteForm:", form_producto_ingrediente.errors)
 
     context = {
         'formulario': ProductoForm()
