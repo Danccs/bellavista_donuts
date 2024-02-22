@@ -4,7 +4,14 @@
 {% block extrahead %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/editar_ing.css' %}">
 {% endblock %}
-
 {% block content %}
- <!--Luis aquí puedes agregar tu código-->
+    <div class="container_editar_ing">   
+        <h1 class="ti_editar_ing">Editar ingrediente</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ formedicion.as_p}}
+            <button type="submit">Guardar Cambios</button>
+        </form>
+    </div>
 {% endblock %}

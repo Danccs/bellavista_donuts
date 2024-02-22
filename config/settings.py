@@ -80,8 +80,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'proyecto_bellavista',
         'HOST': 'localhost',
-        'USER': 'postgres',
-        'PASSWORD': 'D3lmar.13!',
+        'USER': 'root',
+        'PASSWORD': '12345',
 
     }
 }

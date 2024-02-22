@@ -4,7 +4,14 @@
 {% block extrahead %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/editar_prov.css' %}">
 {% endblock %}
-
 {% block content %}
-<!--Luis puedes escribir tu código acá-->
+    <div class="container-editar-prov">
+        <h1 class="ti-editar-prov">Editar</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ formedicion.as_p}}
+            <button type="submit">Guardar</button>
+        </form>
+    </div>
 {% endblock %}
